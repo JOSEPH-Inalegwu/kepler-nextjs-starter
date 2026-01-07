@@ -164,7 +164,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 💡 Need Help?
 
-- [Keplers Documentation](https://keplers.email/docs)
+- [Keplers Documentation](https://docs.keplers.email)
 - [Next.js Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations)
 - [Tailwind CSS Docs](https://tailwindcss.com/docs)
 

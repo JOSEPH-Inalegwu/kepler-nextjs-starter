@@ -11,7 +11,7 @@ export default function Home() {
           <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
             A secure, lightweight contact form powered by{" "}
             <a
-              href="https://kepler.email"
+              href="https://keplers.email"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-black underline decoration-zinc-300 underline-offset-4 transition-colors hover:decoration-black dark:text-white dark:decoration-zinc-700 dark:hover:decoration-white"
