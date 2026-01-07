@@ -10,10 +10,19 @@ export async function submitContactForm(
     prevState: FormState,
     formData: FormData
 ): Promise<FormState> {
+    // Honeypot Check
+    const honeypot = formData.get("_gotcha");
+    if (honeypot) {
+        console.warn("Bot detected and blocked.");
+        // Return fake success 
+        return { success: true, message: "Message sent successfully!" };
+    }
+
     // 1. Extract form data
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const message = formData.get("message") as string;
+
 
     // 2. Validate inputs
     const errors: FormState["errors"] = {};
@@ -22,7 +31,6 @@ export async function submitContactForm(
         errors.name = "Name must be at least 2 characters";
     }
 
-    // Stronger validation
     if (!email || !EMAIL_REGEX.test(email)) {
         errors.email = "Please enter a valid email address";
     }
@@ -41,13 +49,15 @@ export async function submitContactForm(
 
     // 3. Security & Config Check
     const apiKey = process.env.KEPLER_API_KEY;
-    const adminEmail = process.env.CONTACT_EMAIL || "inalegwu@77stack.dev"; // Where you receive it
+    const adminEmail = process.env.CONTACT_EMAIL;
+    const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
 
-    if (!apiKey) {
-        console.error("CRITICAL: KEPLER_API_KEY is missing.");
+    // Fail if critical config is missing
+    if (!apiKey || !adminEmail) {
+        console.error("CRITICAL: KEPLER_API_KEY or CONTACT_EMAIL is missing.");
         return {
             success: false,
-            message: "Server configuration error.",
+            message: "Server configuration error. Please contact the site admin.",
         };
     }
 
@@ -56,10 +66,9 @@ export async function submitContactForm(
         const kepler = createKeplerClient(apiKey);
 
         const result = await kepler.sendEmail({
-            to: [adminEmail],       // ✅ UPDATED: Must be an array
-            // from: systemEmail,   // Removed: Kepler handles this automatically based on your account
+            to: [adminEmail],
             subject: `New Lead: ${name}`,
-            is_html: true,          // ✅ UPDATED: Required flag
+            is_html: true,
             body: `                 
         <div style="font-family: sans-serif; padding: 20px;">
           <h2>New Contact Form Submission</h2>
@@ -69,7 +78,7 @@ export async function submitContactForm(
           <p><strong>Message:</strong></p>
           <p style="background: #f4f4f5; padding: 15px; border-radius: 8px;">${message.replace(/\n/g, "<br>")}</p>
         </div>
-      `, // ✅ UPDATED: Changed 'html' to 'body'
+      `,
         });
 
         if (!result.success) {
@@ -78,6 +87,34 @@ export async function submitContactForm(
                 success: false,
                 message: "Failed to send message. Please try again.",
             };
+        }
+
+
+        if (webhookUrl) {
+            try {
+                await fetch(webhookUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        // Discord/Slack friendly format
+                        content: "🚀 **New Contact Form Submission!**",
+                        embeds: [
+                            {
+                                title: "Lead Details",
+                                color: 5814783, // Blurple
+                                fields: [
+                                    { name: "Name", value: name, inline: true },
+                                    { name: "Email", value: email, inline: true },
+                                    { name: "Message", value: message.length > 200 ? message.substring(0, 200) + "..." : message }
+                                ]
+                            }
+                        ]
+                    }),
+                });
+            } catch (webhookError) {
+                // Log warning but allow success state
+                console.warn("Webhook failed to send:", webhookError);
+            }
         }
 
         return {

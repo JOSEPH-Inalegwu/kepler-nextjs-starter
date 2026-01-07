@@ -1,12 +1,12 @@
 # Kepler Next.js Form
 
-![Next.js](https://img.shields.io/badge/Next.js-16.1.1-black?style=flat-square&logo=next.js)
+![Next.js](https://img.shields.io/badge/Next.js-15.1-black?style=flat-square&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.x-38bdf8?style=flat-square&logo=tailwindcss)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-38bdf8?style=flat-square&logo=tailwindcss)
 
 A secure, server-side contact form pattern for Next.js applications using the Keplers Email API.
 
-![Kepler Contact Form](public/docs/kepler_demo.png)
+![Kepler Contact Form](./public/docs/kepler_demo.png)
 
 ---
 
@@ -48,6 +48,7 @@ Copy the following React components to render the contact form:
 
 - [`components/kepler/contact-form.tsx`](./components/kepler/contact-form.tsx) - Main contact form component
 - [`components/kepler/submit-button.tsx`](./components/kepler/submit-button.tsx) - Submit button with loading state
+- [`components/kepler/toast.tsx`](./components/kepler/toast.tsx) - Zero-dependency toast notification
 
 ---
 
@@ -59,12 +60,19 @@ Create a `.env.local` file in your project root:
 # Kepler Email API Configuration
 KEPLER_API_KEY=sk_your_kepler_api_key_here
 CONTACT_EMAIL=your-email@example.com
+
+# Optional: Discord/Slack Webhook (for instant notifications)
+DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your-webhook-url
 ```
 
 **Required Variables:**
 
 - `KEPLER_API_KEY` - Your Keplers Email API key ([Get one here](https://keplers.email))
 - `CONTACT_EMAIL` - The email address where form submissions will be sent
+
+**Optional Variables:**
+
+- `DISCORD_WEBHOOK_URL` - Discord or Slack webhook URL for instant notifications when leads come in
 
 > [!IMPORTANT]
 > Never commit `.env.local` to version control. Add it to your `.gitignore`.
@@ -93,8 +101,11 @@ That's it! The form will handle validation, submission, and email delivery autom
 
 ## ✨ Features
 
+- **🛡️ Smart Spam Protection** - Uses a "Honeypot" strategy (`_gotcha` field) to block bots without annoying CAPTCHAs
+- **🔔 Webhook Notifications** - Optional support for Discord/Slack webhooks—get pinged instantly when a lead comes in
+- **⚡ Instant Delivery** - Uses Keplers' priority endpoint for immediate email sending
+- **🍞 Zero-Dependency Toast** - Custom, lightweight toast notifications (no external libraries)
 - **🔒 Server-Side Security** - API keys never exposed to the client (uses Next.js Server Actions)
-- **⚡ Instant Delivery** - Uses Keplers' instant email endpoint for immediate sending
 - **📦 Zero-Dependency Validation** - No Zod, no React Hook Form—just clean, native validation
 - **📘 Fully Typed** - Complete TypeScript support for type safety
 - **🎨 Customizable** - Own the code, modify styles and logic as needed

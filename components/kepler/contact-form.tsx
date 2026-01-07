@@ -125,6 +125,15 @@ export function ContactForm() {
                         )}
                     </div>
 
+                    {/* Honeypot Field */}
+                    <input
+                        type="text"
+                        name="_gotcha"
+                        style={{ display: "none" }}
+                        tabIndex={-1}
+                        autoComplete="off"
+                    />
+
                     {/* Submit Button */}
                     <div className="pt-2">
                         <SubmitButton />
