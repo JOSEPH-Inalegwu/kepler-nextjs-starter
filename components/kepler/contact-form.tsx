@@ -1,13 +1,10 @@
 "use client";
 
-/**
- * Contact Form Component
- * Modern, accessible contact form with real-time validation feedback
- */
-
+import { useEffect, useRef, useState } from "react";
 import { useFormState } from "react-dom";
 import { submitContactForm } from "@/app/actions";
 import { SubmitButton } from "./submit-button";
+import { Toast, type ToastVariant } from "./toast";
 import type { FormState } from "@/types";
 
 const initialState: FormState = {
@@ -17,6 +14,23 @@ const initialState: FormState = {
 
 export function ContactForm() {
     const [state, formAction] = useFormState(submitContactForm, initialState);
+    const [toast, setToast] = useState<{ message: string; variant: ToastVariant } | null>(null);
+    const formRef = useRef<HTMLFormElement>(null);
+
+    useEffect(() => {
+        if (state.message) {
+            // Show toast notification
+            setToast({
+                message: state.message,
+                variant: state.success ? "success" : "error",
+            });
+
+            // Reset form on success
+            if (state.success && formRef.current) {
+                formRef.current.reset();
+            }
+        }
+    }, [state]);
 
     return (
         <div className="w-full max-w-md">
@@ -29,7 +43,7 @@ export function ContactForm() {
                 </p>
             </div>
 
-            <form action={formAction} className="space-y-5">
+            <form ref={formRef} action={formAction} className="space-y-5">
                 {/* Name Field */}
                 <div>
                     <label
@@ -101,19 +115,17 @@ export function ContactForm() {
 
                 {/* Submit Button */}
                 <SubmitButton />
-
-                {/* Status Message */}
-                {state.message && (
-                    <div
-                        className={`rounded-lg border px-4 py-3 text-sm ${state.success
-                                ? "border-green-200 bg-green-50 text-green-800 dark:border-green-900 dark:bg-green-950 dark:text-green-200"
-                                : "border-red-200 bg-red-50 text-red-800 dark:border-red-900 dark:bg-red-950 dark:text-red-200"
-                            }`}
-                    >
-                        {state.message}
-                    </div>
-                )}
             </form>
+
+            {/* Toast Notification */}
+            {toast && (
+                <Toast
+                    message={toast.message}
+                    variant={toast.variant}
+                    onClose={() => setToast(null)}
+                />
+            )}
         </div>
     );
 }
+
