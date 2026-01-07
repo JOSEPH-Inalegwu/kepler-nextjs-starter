@@ -1,12 +1,16 @@
 # Kepler Next.js Form
 
-![Next.js](https://img.shields.io/badge/Next.js-15.1-black?style=flat-square&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-38bdf8?style=flat-square&logo=tailwindcss)
+[![Built with Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 
 A secure, server-side contact form pattern for Next.js applications using the Keplers Email API.
 
-![Kepler Contact Form](./public/docs/kepler_demo.png)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/JOSEPH-Inalegwu/kepler-nextjs-starter&env=KEPLER_API_KEY,CONTACT_EMAIL,DISCORD_WEBHOOK_URL)
+
+[**View Live Demo ↗**](https://kepler-nextjs-starter.vercel.app)
+
+![Kepler Contact Form](./public/docs/kepler_contact_demo.png)
 
 ---
 
@@ -183,4 +187,13 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ---
 
-**Made with ❤️ for developers who value security and simplicity.**
+<div align="center">
+
+**Made with ❤️ by [Joseph Inalegwu](https://github.com/JOSEPH-Inalegwu) for developers who value security and simplicity.**
+
+<a href="https://github.com/JOSEPH-Inalegwu/kepler-nextjs-starter/stargazers">
+  <img src="https://img.shields.io/github/stars/JOSEPH-Inalegwu/kepler-nextjs-starter?style=social" alt="Star on GitHub">
+</a>
+
+</div>
+

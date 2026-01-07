@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   description: "A secure, server-side contact form pattern for Next.js applications using the Keplers Email API. Zero client-side API keys, built with Server Actions and TypeScript.",
   keywords: ["Next.js", "Contact Form", "Server Actions", "Keplers Email", "TypeScript", "Tailwind CSS", "React"],
   authors: [{ name: "Joseph Inalegwu", url: "https://github.com/JOSEPH-Inalegwu" }],
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
   openGraph: {
     title: "Kepler Next.js Form",
     description: "Secure contact form pattern with Next.js Server Actions and Keplers Email API",
