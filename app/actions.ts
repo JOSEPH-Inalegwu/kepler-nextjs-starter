@@ -18,6 +18,14 @@ export async function submitContactForm(
         return { success: true, message: "Message sent successfully!" };
     }
 
+    // DEMO MODE 
+    // In "Demo Mode", pretend to send the email but do nothing.
+    if (process.env.NEXT_PUBLIC_DEMO_MODE === "true") {
+        // Fake a 1-second delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        return { success: true, message: "Message sent successfully! (Demo Mode)" };
+    }
+
     // 1. Extract form data
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
