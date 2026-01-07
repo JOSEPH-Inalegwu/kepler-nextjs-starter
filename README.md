@@ -6,7 +6,7 @@
 
 A secure, server-side contact form pattern for Next.js applications using the Keplers Email API.
 
-![Kepler Contact Form](./public/docs/Keplers contact form.png)
+![Kepler Contact Form](public/docs/kepler_demo.png)
 
 ---
 
@@ -160,7 +160,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/JOSEPH-Inalegwu/kepler-starter/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/JOSEPH-Inalegwu/kepler-nextjs-starter/issues).
 
 ---
 
