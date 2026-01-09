@@ -1,63 +1,31 @@
-# Kepler Next.js Form
+# Kepler Next.js Contact Form Starter
+
+> **The fastest production-ready contact form for Next.js.**
+> Copy → paste → add API key → done.
 
 [![Built with Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-
-A secure, server-side contact form pattern for Next.js applications using the Keplers Email API.
-
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/JOSEPH-Inalegwu/kepler-nextjs-starter&env=KEPLER_API_KEY,CONTACT_EMAIL,DISCORD_WEBHOOK_URL)
 
-[**View Live Demo ↗**](https://kepler-nextjs-starter.vercel.app)
+**No packages. No backend setup. Spam-protected by default.**
+Works with Next.js App Router (Server Actions). Built for developers who want full control, security, and speed.
+
+👉 [**View Live Demo ↗**](https://kepler-nextjs-starter.vercel.app)
+👉 **Powered by:** [Keplers Email API](https://keplers.email)
 
 ![Kepler Contact Form](./public/docs/kepler_contact_demo.png)
 
 ---
 
-## 🧠 Philosophy
+## ⚡ Get a Working Contact Form in 3 Steps
 
-**This is not an npm package.** It's a collection of copy-pasteable files designed to give you full control over styling, validation, and logic—similar to [Shadcn UI](https://ui.shadcn.com/).
+**⏱️ Setup time: ~2 minutes**
 
-Instead of installing a black-box dependency, you copy the files you need into your project and customize them to fit your exact requirements. No bloat, no magic, just clean, readable code you own.
+### 1️⃣ Create a Keplers account
+Create a free account on [Keplers](https://keplers.email) and generate your **API Key**.
 
----
-
-## 📦 Installation
-
-### Step 1: Dependencies
-
-Ensure you have the following installed:
-
-```bash
-npm install next react react-dom tailwindcss
-```
-
-This starter requires **Next.js 14+** with the App Router and **Tailwind CSS 4+**.
-
----
-
-### Step 2: The Logic (Copy these files)
-
-Copy the following files into your project to handle types, API communication, and server-side form submission:
-
-- [`types/index.ts`](./types/index.ts) - TypeScript interfaces for form state and API payloads
-- [`lib/kepler.ts`](./lib/kepler.ts) - Lightweight Keplers Email API client
-- [`app/actions.ts`](./app/actions.ts) - Next.js Server Action for secure form processing
-
----
-
-### Step 3: The UI (Copy these files)
-
-Copy the following React components to render the contact form:
-
-- [`components/kepler/contact-form.tsx`](./components/kepler/contact-form.tsx) - Main contact form component
-- [`components/kepler/submit-button.tsx`](./components/kepler/submit-button.tsx) - Submit button with loading state
-- [`components/kepler/toast.tsx`](./components/kepler/toast.tsx) - Zero-dependency toast notification
-
----
-
-### Step 4: Configuration
-
+### 2️⃣ Add your environment variables
 Create a `.env.local` file in your project root:
 
 ```bash
@@ -67,25 +35,19 @@ CONTACT_EMAIL=your-email@example.com
 
 # Optional: Discord/Slack Webhook (for instant notifications)
 DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your-webhook-url
+
 ```
 
-**Required Variables:**
+> 🔒 **Security Note:** API keys are never exposed to the client (handled via Server Actions).
 
-- `KEPLER_API_KEY` - Your Keplers Email API key ([Get one here](https://keplers.email))
-- `CONTACT_EMAIL` - The email address where form submissions will be sent
+### 3️⃣ Copy the files & Ship
 
-**Optional Variables:**
+Copy these files from the starter into your project:
 
-- `DISCORD_WEBHOOK_URL` - Discord or Slack webhook URL for instant notifications when leads come in
+* **The Logic:** `types/index.ts`, `lib/kepler.ts`, `app/actions.ts`
+* **The UI:** `components/kepler/` (contact-form, submit-button, toast)
 
-> [!IMPORTANT]
-> Never commit `.env.local` to version control. Add it to your `.gitignore`.
-
----
-
-## 🚀 Usage
-
-Import and use the `ContactForm` component in any page:
+Then, import and use it in your page:
 
 ```tsx
 import { ContactForm } from "@/components/kepler/contact-form";
@@ -97,23 +59,42 @@ export default function ContactPage() {
     </div>
   );
 }
+
 ```
 
-That's it! The form will handle validation, submission, and email delivery automatically.
+**That’s it.**
+Submit the form → email delivered → optional Discord notification fired.
+
+---
+
+## 🧠 Philosophy (Why this exists)
+
+**This is not an npm package.** It's a collection of copy-pasteable files designed to give you full control over styling, validation, and logic—similar to [Shadcn UI](https://ui.shadcn.com/).
+
+Instead of installing a black-box dependency, you copy the files you need into your project and customize them to fit your exact requirements. No bloat, no magic, just clean, readable code you own.
+
+## 🎯 Who This Is For
+
+This starter is for you if:
+
+- You want the fastest possible contact form in Next.js
+- You don’t want to install heavy form libraries
+- You care about server-side security
+- You want spam protection without CAPTCHA
+- You want to own and customize the code
 
 ---
 
 ## ✨ Features
 
-- **🛡️ Smart Spam Protection** - Uses a "Honeypot" strategy (`_gotcha` field) to block bots without annoying CAPTCHAs
-- **🔔 Webhook Notifications** - Optional support for Discord/Slack webhooks—get pinged instantly when a lead comes in
-- **⚡ Instant Delivery** - Uses Keplers' priority endpoint for immediate email sending
-- **🍞 Zero-Dependency Toast** - Custom, lightweight toast notifications (no external libraries)
-- **🔒 Server-Side Security** - API keys never exposed to the client (uses Next.js Server Actions)
-- **📦 Zero-Dependency Validation** - No Zod, no React Hook Form—just clean, native validation
-- **📘 Fully Typed** - Complete TypeScript support for type safety
-- **🎨 Customizable** - Own the code, modify styles and logic as needed
-- **🪶 Lightweight** - Minimal dependencies, maximum control
+* **🛡️ Smart Spam Protection** - Uses a "Honeypot" strategy (`_gotcha` field) to block bots without annoying CAPTCHAs
+* **🔔 Webhook Notifications** - Optional support for Discord/Slack webhooks—get pinged instantly when a lead comes in
+* **⚡ Instant Delivery** - Uses Keplers' priority endpoint for immediate email sending
+* **🍞 Zero-Dependency Toast** - Custom, lightweight toast notifications (no external libraries)
+* **🔒 Server-Side Security** - API keys never exposed to the client (uses Next.js Server Actions)
+* **📦 Zero-Dependency Validation** - No Zod, no React Hook Form—just clean, native validation
+* **📘 Fully Typed** - Complete TypeScript support for type safety
+* **🎨 Customizable** - Own the code, modify styles and logic as needed
 
 ---
 
@@ -138,38 +119,34 @@ kepler-starter/
 ├── .env.local              # Environment variables (not committed)
 ├── package.json
 └── README.md
+
 ```
 
 ### 🏗️ Architecture Overview
 
-This starter follows a clean, modular architecture:
-
-- **🌉 The Bridge** (`app/actions.ts`)  
-  Next.js Server Actions that securely handle form submissions. This is where your API key lives, safely on the server.
-
-- **🎨 The UI Library** (`components/kepler/`)  
-  Reusable React components styled with Tailwind CSS. These components are framework-agnostic and can be easily copied to other projects.
-
-- **🔌 The SDK** (`lib/kepler.ts`)  
-  A lightweight wrapper around the Keplers Email API. Handles all HTTP communication with proper error handling.
-
-- **📜 The Contract** (`types/index.ts`)  
-  TypeScript interfaces and types that define the shape of your data. Ensures type safety across your application.
+* **🌉 The Bridge** (`app/actions.ts`)
+Next.js Server Actions that securely handle form submissions. This is where your API key lives, safely on the server.
+* **🎨 The UI Library** (`components/kepler/`)
+Reusable React components styled with Tailwind CSS. These components are framework-agnostic and can be easily copied to other projects.
+* **🔌 The SDK** (`lib/kepler.ts`)
+A lightweight wrapper around the Keplers Email API. Handles all HTTP communication with proper error handling.
+* **📜 The Contract** (`types/index.ts`)
+TypeScript interfaces and types that define the shape of your data. Ensures type safety across your application.
 
 ---
 
 ## 🛠️ Built With
 
-- [Next.js 16](https://nextjs.org/) - React framework with Server Actions
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
-- [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS framework
-- [Keplers Email API](https://keplers.email) - Email delivery service
+* [Next.js 15](https://nextjs.org/) - React framework with Server Actions
+* [TypeScript](https://www.typescriptlang.org/) - Type safety
+* [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS framework
+* [Keplers Email API](https://keplers.email) - Email delivery service
 
 ---
 
 ## 📝 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source and available under the [MIT License](https://www.google.com/search?q=LICENSE).
 
 ---
 
@@ -192,7 +169,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 **Made with ❤️ by [Joseph Inalegwu](https://github.com/JOSEPH-Inalegwu) for developers who value security and simplicity.**
 
 <a href="https://github.com/JOSEPH-Inalegwu/kepler-nextjs-starter/stargazers">
-  <img src="https://img.shields.io/github/stars/JOSEPH-Inalegwu/kepler-nextjs-starter?style=social" alt="Star on GitHub">
+<img src="https://img.shields.io/github/stars/JOSEPH-Inalegwu/kepler-nextjs-starter?style=social" alt="Star on GitHub">
 </a>
 
 </div>

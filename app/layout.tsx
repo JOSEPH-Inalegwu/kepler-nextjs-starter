@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kepler Next.js Form - Secure Contact Form with Server Actions",
+  title: "Keplers Next.js Form - Secure Contact Form with Server Actions",
   description: "A secure, server-side contact form pattern for Next.js applications using the Keplers Email API. Zero client-side API keys, built with Server Actions and TypeScript.",
   keywords: ["Next.js", "Contact Form", "Server Actions", "Keplers Email", "TypeScript", "Tailwind CSS", "React"],
   authors: [{ name: "Joseph Inalegwu", url: "https://github.com/JOSEPH-Inalegwu" }],
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     apple: "/logo.svg",
   },
   openGraph: {
-    title: "Kepler Next.js Form",
+    title: "Keplers Next.js Form",
     description: "Secure contact form pattern with Next.js Server Actions and Keplers Email API",
     type: "website",
     url: "https://github.com/JOSEPH-Inalegwu/kepler-nextjs-starter",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kepler Next.js Form",
+    title: "Keplers Next.js Form",
     description: "Secure contact form pattern with Next.js Server Actions",
   },
 };
