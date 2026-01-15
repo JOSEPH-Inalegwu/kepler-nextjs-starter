@@ -1,4 +1,4 @@
-# Kepler Next.js Contact Form Starter
+# Keplars Next.js Contact Form Starter
 
 > **The fastest production-ready contact form for Next.js.**
 > Copy → paste → add API key → done.
@@ -12,7 +12,7 @@
 Works with Next.js App Router (Server Actions). Built for developers who want full control, security, and speed.
 
 👉 [**View Live Demo ↗**](https://kepler-nextjs-starter.vercel.app)
-👉 **Powered by:** [Keplers Email API](https://keplers.email)
+👉 **Powered by:** [Keplars Email API](https://keplars.com)
 
 ![Kepler Contact Form](./public/docs/kepler_contact_demo.png)
 
@@ -22,15 +22,15 @@ Works with Next.js App Router (Server Actions). Built for developers who want fu
 
 **⏱️ Setup time: ~2 minutes**
 
-### 1️⃣ Create a Keplers account
-Create a free account on [Keplers](https://keplers.email) and generate your **API Key**.
+### 1️⃣ Create a Keplars account
+Create a free account on [Keplars](https://keplars.com) and generate your **API Key**.
 
 ### 2️⃣ Add your environment variables
 Create a `.env.local` file in your project root:
 
 ```bash
 # Kepler Email API Configuration
-KEPLER_API_KEY=sk_your_kepler_api_key_here
+KEPLARS_API_KEY=kms_your_keplars_api_key_here
 CONTACT_EMAIL=your-email@example.com
 
 # Optional: Discord/Slack Webhook (for instant notifications)
@@ -89,7 +89,7 @@ This starter is for you if:
 
 * **🛡️ Smart Spam Protection** - Uses a "Honeypot" strategy (`_gotcha` field) to block bots without annoying CAPTCHAs
 * **🔔 Webhook Notifications** - Optional support for Discord/Slack webhooks—get pinged instantly when a lead comes in
-* **⚡ Instant Delivery** - Uses Keplers' priority endpoint for immediate email sending
+* **⚡ Instant Delivery** - Uses Keplars' priority endpoint for immediate email sending
 * **🍞 Zero-Dependency Toast** - Custom, lightweight toast notifications (no external libraries)
 * **🔒 Server-Side Security** - API keys never exposed to the client (uses Next.js Server Actions)
 * **📦 Zero-Dependency Validation** - No Zod, no React Hook Form—just clean, native validation
@@ -108,12 +108,12 @@ kepler-starter/
 │   ├── layout.tsx          # Root layout
 │   └── globals.css         # Global styles
 ├── components/
-│   └── kepler/             # Kepler UI components
+│   └── kepler/             # Keplars UI components
 │       ├── contact-form.tsx    # Main contact form component
 │       ├── submit-button.tsx   # Form submit button with loading state
 │       └── index.ts            # Barrel exports
 ├── lib/
-│   └── kepler.ts           # Kepler API client wrapper
+│   └── kepler.ts           # Keplars API client wrapper
 ├── types/
 │   └── index.ts            # TypeScript type definitions
 ├── .env.local              # Environment variables (not committed)
@@ -129,7 +129,7 @@ Next.js Server Actions that securely handle form submissions. This is where your
 * **🎨 The UI Library** (`components/kepler/`)
 Reusable React components styled with Tailwind CSS. These components are framework-agnostic and can be easily copied to other projects.
 * **🔌 The SDK** (`lib/kepler.ts`)
-A lightweight wrapper around the Keplers Email API. Handles all HTTP communication with proper error handling.
+A lightweight wrapper around the Keplars Email API. Handles all HTTP communication with proper error handling.
 * **📜 The Contract** (`types/index.ts`)
 TypeScript interfaces and types that define the shape of your data. Ensures type safety across your application.
 
@@ -140,7 +140,7 @@ TypeScript interfaces and types that define the shape of your data. Ensures type
 * [Next.js 15](https://nextjs.org/) - React framework with Server Actions
 * [TypeScript](https://www.typescriptlang.org/) - Type safety
 * [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS framework
-* [Keplers Email API](https://keplers.email) - Email delivery service
+* [Keplars Email API](https://keplars.com) - Email delivery service
 
 ---
 
@@ -158,7 +158,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 💡 Need Help?
 
-- [Keplers Documentation](https://docs.keplers.email)
+- [Keplars Documentation](https://docs.keplars.com)
 - [Next.js Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations)
 - [Tailwind CSS Docs](https://tailwindcss.com/docs)
 

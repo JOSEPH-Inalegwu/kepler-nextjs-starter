@@ -13,17 +13,17 @@ export default function Home() {
           </div>
 
           <h1 className="text-4xl font-bold tracking-tight text-black dark:text-white sm:text-5xl">
-            Keplers Next.js Starter
+            Keplars Next.js Starter
           </h1>
           <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
             A secure, lightweight contact form powered by{" "}
             <a
-              href="https://keplers.email"
+              href="https://keplars.com"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-black underline decoration-zinc-300 underline-offset-4 transition-colors hover:decoration-black dark:text-white dark:decoration-zinc-700 dark:hover:decoration-white"
             >
-              Keplers Email API
+              Keplars Email API
             </a>
           </p>
         </div>
