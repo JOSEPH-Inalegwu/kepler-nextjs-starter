@@ -1,5 +1,5 @@
-import { ContactForm } from "@/components/kepler/contact-form";
-import { Logo } from "@/components/kepler/Logo";
+import { ContactForm } from "@/components/keplars/contact-form";
+import { Logo } from "@/components/keplars/Logo";
 
 export default function Home() {
   return (

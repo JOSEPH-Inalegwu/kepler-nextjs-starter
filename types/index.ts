@@ -8,7 +8,7 @@ export type FormState = {
     };
 };
 
-export type KeplerEmailPayload = {
+export type KeplarsEmailPayload = {
     to: string[];
     subject: string;
     body: string;
@@ -16,7 +16,7 @@ export type KeplerEmailPayload = {
     from?: string;
 };
 
-export type KeplerEmailResponse = {
+export type KeplarsEmailResponse = {
     success: boolean;
     data?: {
         id?: string;

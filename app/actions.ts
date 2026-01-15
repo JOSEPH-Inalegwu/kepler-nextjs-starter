@@ -1,6 +1,6 @@
 "use server";
 
-import { createKeplerClient } from "@/lib/kepler";
+import { createKeplarsClient } from "@/lib/keplars";
 import type { FormState } from "@/types";
 
 // Regex for basic email structure
@@ -56,24 +56,24 @@ export async function submitContactForm(
     }
 
     // 3. Security & Config Check
-    const apiKey = process.env.KEPLER_API_KEY;
+    const apiKey = process.env.KEPLARS_API_KEY;
     const adminEmail = process.env.CONTACT_EMAIL;
     const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
 
     // Fail if critical config is missing
     if (!apiKey || !adminEmail) {
-        console.error("CRITICAL: KEPLER_API_KEY or CONTACT_EMAIL is missing.");
+        console.error("CRITICAL: KEPLARS_API_KEY or CONTACT_EMAIL is missing.");
         return {
             success: false,
             message: "Server configuration error. Please contact the site admin.",
         };
     }
 
-    // 4. Send via Kepler
+    // 4. Send via Keplars
     try {
-        const kepler = createKeplerClient(apiKey);
+        const keplars = createKeplarsClient(apiKey);
 
-        const result = await kepler.sendEmail({
+        const result = await keplars.sendEmail({
             to: [adminEmail],
             subject: `New Lead: ${name}`,
             is_html: true,
@@ -90,7 +90,7 @@ export async function submitContactForm(
         });
 
         if (!result.success) {
-            console.error("Kepler API Error:", result.error || "Unknown error");
+            console.error("Keplars API Error:", result.error || "Unknown error");
             return {
                 success: false,
                 message: "Failed to send message. Please try again.",

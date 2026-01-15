@@ -1,17 +1,17 @@
-import type { KeplerEmailPayload, KeplerEmailResponse } from "@/types";
+import type { KeplarsEmailPayload, KeplarsEmailResponse } from "@/types";
 
-const KEPLER_BASE_URL = "https://api.keplers.email";
+const KEPLARS_BASE_URL = "https://api.keplers.email";
 
-export class KeplerClient {
+export class KeplarsClient {
     private apiKey: string;
 
     constructor(apiKey: string) {
-        if (!apiKey) throw new Error("Kepler API key is required");
+        if (!apiKey) throw new Error("Keplars API key is required");
         this.apiKey = apiKey;
     }
 
-    async sendEmail(payload: KeplerEmailPayload): Promise<KeplerEmailResponse> {
-        const endpoint = `${KEPLER_BASE_URL}/api/v1/send-email/instant`;
+    async sendEmail(payload: KeplarsEmailPayload): Promise<KeplarsEmailResponse> {
+        const endpoint = `${KEPLARS_BASE_URL}/api/v1/send-email/instant`;
 
         try {
             const response = await fetch(endpoint, {
@@ -46,6 +46,6 @@ export class KeplerClient {
     }
 }
 
-export function createKeplerClient(apiKey: string): KeplerClient {
-    return new KeplerClient(apiKey);
+export function createKeplarsClient(apiKey: string): KeplarsClient {
+    return new KeplarsClient(apiKey);
 }

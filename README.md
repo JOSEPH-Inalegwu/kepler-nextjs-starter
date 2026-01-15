@@ -14,7 +14,7 @@ Works with Next.js App Router (Server Actions). Built for developers who want fu
 👉 [**View Live Demo ↗**](https://kepler-nextjs-starter.vercel.app)
 👉 **Powered by:** [Keplars Email API](https://keplars.com)
 
-![Kepler Contact Form](./public/docs/kepler_contact_demo.png)
+![Keplars Contact Form](./public/docs/kepler_contact_demo.png)
 
 ---
 
@@ -44,8 +44,8 @@ DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your-webhook-url
 
 Copy these files from the starter into your project:
 
-* **The Logic:** `types/index.ts`, `lib/kepler.ts`, `app/actions.ts`
-* **The UI:** `components/kepler/` (contact-form, submit-button, toast)
+* **The Logic:** `types/index.ts`, `lib/keplars.ts`, `app/actions.ts`
+* **The UI:** `components/keplars/` (contact-form, submit-button, toast)
 
 Then, import and use it in your page:
 
@@ -101,19 +101,19 @@ This starter is for you if:
 ## 📁 Project Structure
 
 ```
-kepler-starter/
+keplars-starter/
 ├── app/
 │   ├── actions.ts          # Server Actions - handles form submission
 │   ├── page.tsx            # Main page with contact form
 │   ├── layout.tsx          # Root layout
 │   └── globals.css         # Global styles
 ├── components/
-│   └── kepler/             # Keplars UI components
+│   └── keplars/             # Keplars UI components
 │       ├── contact-form.tsx    # Main contact form component
 │       ├── submit-button.tsx   # Form submit button with loading state
 │       └── index.ts            # Barrel exports
 ├── lib/
-│   └── kepler.ts           # Keplars API client wrapper
+│   └── keplars.ts           # Keplars API client wrapper
 ├── types/
 │   └── index.ts            # TypeScript type definitions
 ├── .env.local              # Environment variables (not committed)
@@ -126,9 +126,9 @@ kepler-starter/
 
 * **🌉 The Bridge** (`app/actions.ts`)
 Next.js Server Actions that securely handle form submissions. This is where your API key lives, safely on the server.
-* **🎨 The UI Library** (`components/kepler/`)
+* **🎨 The UI Library** (`components/keplars/`)
 Reusable React components styled with Tailwind CSS. These components are framework-agnostic and can be easily copied to other projects.
-* **🔌 The SDK** (`lib/kepler.ts`)
+* **🔌 The SDK** (`lib/keplars.ts`)
 A lightweight wrapper around the Keplars Email API. Handles all HTTP communication with proper error handling.
 * **📜 The Contract** (`types/index.ts`)
 TypeScript interfaces and types that define the shape of your data. Ensures type safety across your application.
